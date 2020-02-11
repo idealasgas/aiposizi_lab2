@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: lab2_production
-  username: locki
-  password: locki
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
