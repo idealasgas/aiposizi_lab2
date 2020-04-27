@@ -11,16 +11,16 @@
       <li class="nav-item">
         <%= link_to 'students', students_path, class: "nav-link" %>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <%= link_to 'teachers', teachers_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <%= link_to 'groups', groups_path, class: "nav-link" %>
       </li>
     </ul>
   </div>
 </nav>
-<%= link_to 'Add teacher', new_teacher_path %>
+<%= link_to 'Add group', new_group_path %>
 
 
 <div class="container">
@@ -28,20 +28,18 @@
     <thead>
       <tr class="table-primary">
         <th scope="col">name</th>
-        <th scope="col">surname</th>
-        <th scope="col">subject</th>
+        <th scope="col">teacher</th>
         <th scope="col"></th>
         <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <% @teachers.each do |teacher| %>
+      <% @groups.each do |group| %>
         <tr>
-          <td><%= teacher.name %></td>
-          <td><%= teacher.surname %></td>
-          <td><%= teacher.subject %></td>
-          <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-          <td><%= link_to 'Fire', teacher_path(teacher),
+          <td><%= group.name %></td>
+          <td><%= group&.teacher&.name %> <%= group&.teacher&.surname %></td>
+          <td><%= link_to 'Edit', edit_group_path(group) %></td>
+          <td><%= link_to 'Remove', group_path(group),
                   method: :delete,
                   data: { confirm: 'Are you sure?' } %></td>
         </tr>
