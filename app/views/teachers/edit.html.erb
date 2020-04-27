@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Edit teacher</h1>
+
+  <% flash[:errors]&.each do |error| %>
+    <div class="alert alert-danger" role="alert">
+      <%= error %>
+    </div>
+  <% end %>
+
+
+  <%= form_with(model: @teacher, local: true) do |form| %>
+    <p>
+      <%= form.label 'Name' %><br>
+      <%= form.text_field :name %>
+    </p>
+
+    <p>
+      <%= form.label 'Surname' %><br>
+      <%= form.text_field :surname %>
+    </p>
+
+    <p>
+      <%= form.label 'Subject' %><br>
+      <%= form.text_field :subject %>
+    </p>
+
+    <p>
+      <%= form.submit 'Change' %>
+    </p>
+  <% end %>
+</div>
