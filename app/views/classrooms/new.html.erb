@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Add new classroom</h1>
+
+  <% flash[:errors]&.each do |error| %>
+    <div class="alert alert-danger" role="alert">
+      <%= error %>
+    </div>
+  <% end %>
+
+  <%= form_with scope: :classroom, url: classrooms_path, local: true do |form| %>
+    <p>
+      <%= form.label 'Number' %><br>
+      <%= form.text_field :number %>
+    </p>
+    <p>
+      <%= form.label 'Teacher' %><br>
+      <%= form.select :teacher_id, @selection, { include_blank: true } %>
+    </p>
+    <p>
+      <%= form.submit 'Add' %>
+    </p>
+  <% end %>
+</div>

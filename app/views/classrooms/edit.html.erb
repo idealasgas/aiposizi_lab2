@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Edit group</h1>
+  <h1>Edit classroom</h1>
 
   <% flash[:errors]&.each do |error| %>
     <div class="alert alert-danger" role="alert">
@@ -8,15 +8,15 @@
   <% end %>
 
 
-  <%= form_with(model: @group, local: true) do |form| %>
+  <%= form_with(model: @classroom, local: true) do |form| %>
     <p>
-      <%= form.label 'Name' %><br>
-      <%= form.text_field :name %>
+      <%= form.label 'Number' %><br>
+      <%= form.text_field :number %>
     </p>
 
     <p>
       <%= form.label 'Teacher' %><br>
-      <%= form.select :teacher_id, @selection, { include_blank: true }, :value => @group&.teacher&.name %>
+      <%= form.select :teacher_id, @selection, { include_blank: true }, :value => @classroom&.teacher&.name %>
     </p>
 
     <p>
