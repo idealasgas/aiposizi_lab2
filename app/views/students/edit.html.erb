@@ -21,7 +21,7 @@
 
     <p>
       <%= form.label 'Group' %><br>
-      <%= form.text_field :group_name, :value => @student.group.name %>
+      <%= form.text_field :group_name, :value => @student&.group&.name %>
     </p>
 
     <p>

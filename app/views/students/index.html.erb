@@ -39,7 +39,7 @@
         <tr>
           <td><%= student.name %></td>
           <td><%= student.surname %></td>
-          <td><%= student.group.name %></td>
+          <td><%= student&.group&.name %></td>
           <td><%= link_to 'Edit', edit_student_path(student) %></td>
           <td><%= link_to 'Suspend', student_path(student),
                   method: :delete,
