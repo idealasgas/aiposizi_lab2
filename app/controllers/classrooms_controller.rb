@@ -61,5 +61,9 @@ class ClassroomsController < ApplicationController
   end
 
   def destroy
+    classroom = Classroom.find(params[:id])
+    classroom.destroy
+
+    redirect_to classrooms_path
   end
 end
